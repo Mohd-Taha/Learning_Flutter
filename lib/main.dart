@@ -1,90 +1,176 @@
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(new MaterialApp(
+    home: new MyApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => new _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Flutter Demo",
-      theme: ThemeData(
-        primarySwatch: Colors.green,
+    return new SplashScreen(
+      seconds: 14,
+      navigateAfterSeconds: new AfterSplash(),
+      title: new Text(
+        'Flutter Sessions: Day 2',
+        style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
       ),
-      home: MyHomePage(title: "Flutter Session Day 1"),
+      // image: Image.asset(
+      //   'assets/images/img.jfif',
+      //   fit: BoxFit.fill,
+      // ),
+      // image: new Image.network(
+      //     'https://flutter.io/images/catalog-widget-placeholder.png'),
+      backgroundColor: Colors.white,
+      loaderColor: Colors.red,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class AfterSplash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Welcome In SplashScreen Package"),
+        automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Container(
-          height: 200,
-          color: Colors.yellowAccent,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.redAccent,
-                child: Center(
-                    child: Text(
-                  'Accept',
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.indigo,
-                      fontWeight: FontWeight.bold),
-                )),
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.purpleAccent,
-                child: Center(
-                    child: Text(
-                  'This',
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.indigo,
-                      fontWeight: FontWeight.bold),
-                )),
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.orangeAccent,
-                child: Center(
-                    child: Text(
-                  'Challenge',
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.indigo,
-                      fontWeight: FontWeight.bold),
-                )),
-              ),
-            ],
+      body: Container(
+        child: new Center(
+          child: new Text(
+            "After Screen",
+            style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
           ),
         ),
       ),
     );
   }
 }
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: "Flutter Demo",
+//       theme: ThemeData(
+//         primarySwatch: Colors.green,
+//       ),
+//       home: MyHomePage(title: "Flutter Session Day 1"),
+//     );
+//   }
+// }
+
+// class MyHomePage extends StatefulWidget {
+//   MyHomePage({Key key, this.title}) : super(key: key);
+
+//   final String title;
+//   @override
+//   _MyHomePageState createState() => _MyHomePageState();
+// }
+
+// class _MyHomePageState extends State<MyHomePage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     String _value;
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(widget.title),
+//       ),
+//       body: Container(
+//         // color: Colors.blueAccent,
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//           children: [
+//             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+//               Expanded(
+//                 child: TextField(
+//                   decoration: InputDecoration(
+//                     border: InputBorder.none,
+//                     hintText: "Enter Your Name",
+//                   ),
+//                   onChanged: (inp) => _value = inp,
+//                 ),
+//               ),
+//               RaisedButton(
+//                 onPressed: () => print(_value),
+//                 child: Text(
+//                   'Click Me',
+//                   style: TextStyle(),
+//                 ),
+//               ),
+//               // Icon(
+//               //   Icons.favorite,
+//               //   color: Colors.redAccent,
+//               //   size: 100,
+//               // ),
+//             ]),
+//           ],
+//         ),
+//       ),
+//       // body: Center(
+//       //   child: Container(
+//       //     height: 200,
+//       //     color: Colors.yellowAccent,
+//       //     child: Row(
+//       //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//       //       children: [
+//       //         Container(
+//       //           height: 100,
+//       //           width: 100,
+//       //           color: Colors.redAccent,
+//       //           child: Center(
+//       //               child: Text(
+//       //             'Accept',
+//       //             style: TextStyle(
+//       //                 fontSize: 20,
+//       //                 color: Colors.indigo,
+//       //                 fontWeight: FontWeight.bold),
+//       //           )),
+//       //         ),
+//       //         Container(
+//       //           height: 100,
+//       //           width: 100,
+//       //           color: Colors.purpleAccent,
+//       //           child: Center(
+//       //               child: Text(
+//       //             'This',
+//       //             style: TextStyle(
+//       //                 fontSize: 20,
+//       //                 color: Colors.indigo,
+//       //                 fontWeight: FontWeight.bold),
+//       //           )),
+//       //         ),
+//       //         Container(
+//       //           height: 100,
+//       //           width: 100,
+//       //           color: Colors.orangeAccent,
+//       //           child: Center(
+//       //               child: Text(
+//       //             'Challenge',
+//       //             style: TextStyle(
+//       //                 fontSize: 20,
+//       //                 color: Colors.indigo,
+//       //                 fontWeight: FontWeight.bold),
+//       //           )),
+//       //         ),
+//       //       ],
+//       //     ),
+//       //   ),
+//       // ),
+//     );
+//   }
+// }
 
 // class MyApp extends StatelessWidget {
 //   // This widget is the root of your application.
